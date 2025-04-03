@@ -24,8 +24,8 @@ const App = () => (
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Layout />}>
-                        <Route index element={<DashboardPage />} />
-                        <Route path="leads" element={<LeadsPage />} />
+                        {/*<Route index element={<DashboardPage />} />*/}
+                        <Route index element={<LeadsPage />} />
                         <Route path="campaigns" element={<CampaignsPage />} />
                         <Route path="campaigns/new" element={<NewCampaignPage />} />
                         <Route path="campaigns/:id" element={<CampaignPage />} />
