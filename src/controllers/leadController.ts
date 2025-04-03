@@ -1,6 +1,7 @@
 // src/controllers/leadController.ts
 import { Request, Response } from 'express';
 import Lead, { ILead } from '../models/Lead';
+import AI from '../utils/Ai';
 
 // Get all leads
 export const getLeads = async (req: Request, res: Response): Promise<void> => {
@@ -34,7 +35,7 @@ export const getLeadById = async (req: Request, res: Response): Promise<void> =>
 // Create new lead
 export const createLead = async (req: Request, res: Response): Promise<void> => {
     try {
-        const { name, job_title, company, location, linkedin_url } = req.body;
+        const { name, job_title, company, summary, location, linkedin_url } = req.body;
 
         // Check if lead with same LinkedIn URL already exists
         const existingLead = await Lead.findOne({
@@ -54,6 +55,7 @@ export const createLead = async (req: Request, res: Response): Promise<void> => 
             location,
             linkedin_url,
             is_deleted: false,
+            summary,
             created_at: new Date(),
             updated_at: new Date()
         });
@@ -68,7 +70,7 @@ export const createLead = async (req: Request, res: Response): Promise<void> => 
 // Update lead
 export const updateLead = async (req: Request, res: Response): Promise<void> => {
     try {
-        const { name, job_title, company, location, linkedin_url } = req.body;
+        const { name, job_title, summary, company, location, linkedin_url } = req.body;
 
         // Check if the lead exists
         const lead = await Lead.findOne({
@@ -103,6 +105,7 @@ export const updateLead = async (req: Request, res: Response): Promise<void> => 
                 company,
                 location,
                 linkedin_url,
+                summary,
                 updated_at: new Date()
             },
             { new: true }
@@ -156,3 +159,5 @@ export const hardDeleteLead = async (req: Request, res: Response): Promise<void>
         res.status(500).json({ message: 'Server Error', error });
     }
 };
+
+

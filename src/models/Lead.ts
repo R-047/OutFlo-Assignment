@@ -7,6 +7,7 @@ export interface ILead extends Document {
     location: string;
     linkedin_url: string;
     is_deleted: boolean;
+    summary: string;
     created_at: Date;
     updated_at: Date;
 }
@@ -17,6 +18,7 @@ const LeadSchema: Schema = new Schema({
     company: { type: String, required: true },
     location: { type: String, required: true },
     linkedin_url: { type: String, required: true },
+    summary: { type: String, required: true },
     is_deleted: { type: Boolean, default: false },
     created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now }

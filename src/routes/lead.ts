@@ -5,27 +5,28 @@ import {
     createLead,
     updateLead,
     deleteLead,
-    hardDeleteLead
+    hardDeleteLead,
 } from '../controllers/leadController';
 
-const router: Router = express.Router();
+const leadRouter: Router = express.Router();
 
 // Get all leads
-router.get('/', getLeads);
+leadRouter.get('/', getLeads);
 
 // Get lead by ID
-router.get('/:id', getLeadById);
+leadRouter.get('/:id', getLeadById);
 
 // Create new lead
-router.post('/', createLead);
+leadRouter.post('/', createLead);
 
 // Update lead
-router.put('/:id', updateLead);
+leadRouter.put('/:id', updateLead);
 
 // Soft delete lead
-router.delete('/:id', deleteLead);
+leadRouter.delete('/:id', deleteLead);
 
 // Hard delete lead (optional - for admin purposes)
-router.delete('/permanent/:id', hardDeleteLead);
+leadRouter.delete('/permanent/:id', hardDeleteLead);
 
-export default router;
+
+export default leadRouter;
