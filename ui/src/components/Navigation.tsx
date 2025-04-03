@@ -8,7 +8,7 @@ const Navigation: React.FC = () => {
 
     const navItems = [
         // { name: 'Dashboard', path: '/', icon: <LayoutDashboard className="h-5 w-5" /> },
-        { name: 'Leads', path: '/leads', icon: <Users className="h-5 w-5" /> },
+        { name: 'Leads', path: '/', icon: <Users className="h-5 w-5" /> },
         { name: 'Campaigns', path: '/campaigns', icon: <Send className="h-5 w-5" /> },
         { name: 'Accounts', path: '/accounts', icon: <Briefcase className="h-5 w-5" /> }
     ];
