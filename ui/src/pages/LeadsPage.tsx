@@ -120,7 +120,7 @@ const LeadsPage: React.FC = () => {
 
     const handleAutoFill = async (linkedin_url: string) => {
 
-        const linkedinUrlRegex = /^https:\/\/(www\.)?linkedin\.com\/(in|pub|public-profile\/(in|pub))\/[a-zA-Z0-9-]+$/;
+        const linkedinUrlRegex = /^https:\/\/(www\.)?linkedin\.com\/(in|pub|public-profile\/(in|pub))\/[a-zA-Z0-9-]+\/*$/;
         if (!linkedinUrlRegex.test(linkedin_url)) {
             toast({
                 title: "Error",
