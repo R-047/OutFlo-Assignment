@@ -6,7 +6,7 @@ export const getProfileInfo = async (req: Request, res: Response): Promise<void>
 
     try {
         const profile = await Crawler.getLeadInfo(linkedin_url)
-        res.status(200).json({ profile });
+        res.status(200).json({ ...profile });
     } catch (error: any) {
         res.status(500).json({ error: error.message });
     }

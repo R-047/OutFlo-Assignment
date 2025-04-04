@@ -76,3 +76,25 @@ export const deleteLead = async (id: string): Promise<boolean> => {
         throw error;
     }
 };
+
+export const scrapeLeadInfo = async (linkedin_url: string): Promise<Partial<Lead>> => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/api/crawler/scrape-profile-info`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(
+                {
+                    linkedin_url
+                }
+            ),
+        });
+        if (!response.ok) throw new Error('Failed to scrape lead');
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error scraping lead info:", error);
+        throw error;
+    }
+}
