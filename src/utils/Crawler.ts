@@ -25,6 +25,7 @@ export default class Crawler {
 
     static async launchBrowser(): Promise<Browser> {
         return await puppeteer.launch({
+            headless: true,
             args: ["--no-sandbox"]
         });
     }
