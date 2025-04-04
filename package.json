@@ -8,7 +8,7 @@
     "start": "node dist/index.js",
     "dev": "nodemon --exec ts-node src/index.ts",
     "custom-build": "npm run install-browser && npm run build && npm run build-ui",
-    "install-browser": "npx puppeteer browsers install chrome",
+    "install-browser": "npm install && apt-get update && apt-get install -y wget gnupg && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && sh -c 'echo \"deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\" >> /etc/apt/sources.list.d/google.list' && apt-get update && apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 --no-install-recommends",
     "build-ui": "cd ui && npm install && npm run build && rm -rf ../dist/public && mkdir -p ../dist/public && cp -r dist/* ../dist/public"
   },
   "keywords": [],
