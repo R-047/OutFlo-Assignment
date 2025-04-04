@@ -6,8 +6,9 @@ import leadRoutes from './routes/lead';
 import accountRouter from './routes/account';
 import campaignRouter from './routes/campaign';
 import campaignLeadMessageRouter from './routes/campaign-lead-message';
-import { generateMessage } from './controllers/AiController';
 import path from 'path';
+import aiRouter from './routes/ai';
+import crawlerRouter from './routes/crawler';
 // Load environment variables
 dotenv.config();
 
@@ -29,7 +30,8 @@ app.use('/api/leads', leadRoutes);
 app.use('/api/accounts', accountRouter);
 app.use('/api/campaigns', campaignRouter);
 app.use('/api/campaign-messages', campaignLeadMessageRouter)
-app.use('/api/ai', generateMessage)
+app.use('/api/ai', aiRouter)
+app.use('/api/crawler', crawlerRouter)
 
 
 if (NODE_ENV === "production") {
