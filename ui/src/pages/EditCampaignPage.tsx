@@ -147,6 +147,7 @@ const EditCampaignPage: React.FC = () => {
             }))
         },
         onError: (error) => {
+            setGeneratingMessages({})
             toast.error("Failed to create a message for a lead");
             console.error("Message creation error:", error);
         }

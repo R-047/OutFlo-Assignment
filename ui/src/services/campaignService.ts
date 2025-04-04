@@ -136,7 +136,7 @@ export const generateMessage = async (
     lead: Lead,
 ): Promise<{ message: { text: string }; id: string }> => {
     try {
-        const response = await fetch(`${API_BASE_URL}/api/ai/generate-message/`, {
+        const response = await fetch(`${API_BASE_URL}/api/ai/generatemessage`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
