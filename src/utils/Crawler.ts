@@ -25,11 +25,7 @@ export default class Crawler {
 
     static async launchBrowser(): Promise<Browser> {
         return await puppeteer.launch({
-            headless: true, // Use "new" for better support in recent Chromium
-            args: [
-                "--no-sandbox", // Required for some Linux environments like Docker
-                "--disable-setuid-sandbox"
-            ]
+            args: ["--no-sandbox"]
         });
     }
 
